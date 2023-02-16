@@ -8,11 +8,13 @@
     <h1 class="display-4">Hello!</h1>
     <br />
     <br />
-    <p>Please feel free to view, add, edit, and cancel orders below </p>
+    <p>Please feel free to view, add, and cancel orders below </p>
+    <br />
+    <br />
 </div>
 
 <div class="row">
-    <div align="right" class="col-6">
+    <div align="left" class="col-6">
         <a class="btn btn-info" asp-action="Create">Create a New Order Here<i class="fa-solid fa-bicycle"></i></a>
     </div>
     <br />
@@ -36,7 +38,7 @@
                     @Html.DisplayNameFor(m => m.Date)
                 </th>
                 <th align="right">
-                    Edit/Delete
+                    Edit/Cancel
                 </th>
                 @*<th></th>*@
             </tr>

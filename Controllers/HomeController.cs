@@ -32,19 +32,20 @@ namespace Baileys_Order_API.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            //this will return the create view
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Order order)
         {
-            if (_context.Orders.Where(x => x.Name == order.Name).Any())
+            if (_context.Orders.Where(x => x.Name == order.Name).Any()) //throw and exception if the order has already been placed
                 throw new Exception("Sorry this order already exist"); 
 
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
-                _context.Add(order);
+                _context.Add(order); //Add the order to the database 
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
@@ -54,12 +55,12 @@ namespace Baileys_Order_API.Controllers
         [HttpPost]
         public IActionResult Delete(int id)
         {
-            var registration = _context.Orders.Find(id);
-            if (registration == null)
+            var order = _context.Orders.Find(id); //look 
+            if (order == null)
             {
                 return NotFound();
             }
-            _context.Orders.Remove(registration);
+            _context.Orders.Remove(order);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
@@ -68,22 +69,23 @@ namespace Baileys_Order_API.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var registration = _context.Orders.Find(id);
+            var order = _context.Orders.Find(id); //look in the data base for the correct ID
 
-            if (registration == null)
+            if (order == null)
                 return NotFound();
 
 
-            return View(registration);
+            return View(order);
 
         }
-
+        //There is a bug but was going to use this to edit the quanitity but I am running out of time with 2 hour window so will leave so you can see
+        //This was going to be used to edit the quantity of an order
         [HttpPost]
         public IActionResult Edit(Order order)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(order);
+                _context.Update(order.Quantity);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }

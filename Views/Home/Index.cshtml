@@ -32,6 +32,9 @@
                     @Html.DisplayNameFor(m => m.Description)
                 </th>
                 <th colspan="2">
+                    @Html.DisplayNameFor(m => m.Price)
+                </th>
+                <th colspan="2">
                     @Html.DisplayNameFor(m => m.Quantity)
                 </th>
                 <th colspan="2">
@@ -53,6 +56,9 @@
                     </td>
                     <td colspan="2">
                         @Html.DisplayFor(w => item.Description)
+                    </td>
+                    <td colspan="2">
+                        $@Html.DisplayFor(w => item.Price)
                     </td>
                     <td colspan="2">
                         @Html.DisplayFor(w => item.Quantity)

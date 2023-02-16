@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Baileys_Order_API.Models.Order>
+@{
+    ViewData["Title"] = "Order Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hello!</h1>
+    <br />
+    <br />
+    <p>Please feel free to view, add, edit, and cancel orders below </p>
+</div>
+
+<div class="row">
+    <div align="right" class="col-6">
+        <a class="btn btn-info" asp-action="Create">Create a New Order Here<i class="fa-solid fa-bicycle"></i></a>
+    </div>
+    <br />
+    <div class="col-12">
+        <table class="table table-striped border">
+            <tr class="table-info">
+                <th colspan="2">
+                    @Html.DisplayNameFor(m => m.InvoiceNumber)
+
+                </th>
+                <th colspan="2">
+                    @Html.DisplayNameFor(m => m.Name)
+                </th>
+                <th colspan="2">
+                    @Html.DisplayNameFor(m => m.Description)
+                </th>
+                <th colspan="2">
+                    @Html.DisplayNameFor(m => m.Quantity)
+                </th>
+                <th colspan="2">
+                    @Html.DisplayNameFor(m => m.Date)
+                </th>
+                <th align="right">
+                    Edit/Delete
+                </th>
+                @*<th></th>*@
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td colspan="2">
+                        @Html.DisplayFor(w => item.InvoiceNumber)
+                    </td>
+                    <td colspan="2">
+                        @Html.DisplayFor(w => item.Name)
+                    </td>
+                    <td colspan="2">
+                        @Html.DisplayFor(w => item.Description)
+                    </td>
+                    <td colspan="2">
+                        @Html.DisplayFor(w => item.Quantity)
+                    </td>
+                    <td colspan="2">
+                        @Html.DisplayFor(w => item.Date)
+                    </td>
+                    <partial name="_TableButtonPartial" model="item.Id" />
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>

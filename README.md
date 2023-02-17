@@ -14,5 +14,6 @@ Somethings to know about this project:
 - you are able to view, add, and cancel orders. 
 - I was also going to include an edit (update) order option but I ran out of time in the two hour window :( There is edit (update) code in the project but there ended up being a bug and was not able to find it in time. It is so close to being done.
 - I could very easily add up the total price in the DbContext but ran out of time. Just create a method GetTotal and search through the whole database and add every price and return the final double in the method.
+- Uses .Net 6 since .Net 3.1 is so out of date 
 
 
